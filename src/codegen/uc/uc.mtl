@@ -10,13 +10,13 @@
 [file ('UC.md', false, 'UTF-8')]
 # Lista de entidades
 
-|Entidad| DET (Atributos diferentes de relacion composite)|
+|Entidad| DET (Atributos diferentes de asociacones)|
 | ------ | ---------------------------------- |
 [for (c : Class | m.getClasses())]
 | ['['/]Entidad [c.name/][']'/](#entidad-[c.name.toLowerCase()/]---casos-de-uso) | [c.allAttributes()->size()/] | 
 [/for]
 
-Numero de clases: [m.getClasses()->size()/]
+Número de clases: [m.getClasses()->size()/]
 
 ['['/]Volver arriba[']'/](#lista-de-entidades)
 [/file]
