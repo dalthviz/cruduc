@@ -9,9 +9,13 @@
 
 [file ('UC.md', false, 'UTF-8')]
 # Lista de entidades
+
+|Entidad| DET (Atributos diferentes de relacion composite)| |
+| ------ | ---------------------------------- | ---- |
 [for (c : Class | m.getClasses())]
--  ['['/]Entidad [c.name/][']'/](#entidad-[c.name.toLowerCase()/]---casos-de-uso)
+| ['['/]Entidad [c.name/][']'/](#entidad-[c.name.toLowerCase()/]---casos-de-uso) | [c.allAttributes()->size()/] | [c.getAttribsDifComposite()/] |
 [/for]
+
 
 ['['/]Volver arriba[']'/](#lista-de-entidades)
 [/file]
