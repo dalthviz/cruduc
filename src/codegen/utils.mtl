@@ -12,10 +12,6 @@ m.eContents()->select(e | e.oclIsTypeOf(Class))
 c.allAttributes()->reject(isID())
 /]
 
-[query public getAttribsDifComposite(c : Class) : OrderedSet(Property) =
-c.allAttributes()->reject(isComposite())
-/]
-
 [query public getId(c : Class) : Property =
 c.allAttributes()->any(isID())
 /]
