@@ -10,7 +10,7 @@
 [file ('UC.md', false, 'UTF-8')]
 # Lista de entidades
 
-|Entidad| DET (Atributos diferentes de asociacones)|
+|Entidad| DET (Atributos diferentes de asociaciones)|
 | ------ | ---------------------------------- |
 [for (c : Class | m.getClasses())]
 | ['['/]Entidad [c.name/][']'/](#entidad-[c.name.toLowerCase()/]---casos-de-uso) | [c.getNumAttribs()/] | 
