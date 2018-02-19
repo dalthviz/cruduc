@@ -12,6 +12,10 @@ m.eContents()->select(e | e.oclIsTypeOf(Class))
 c.allAttributes()->reject(isID())
 /]
 
+[query public getNumAttribs(c : Class) : Integer =
+c.allAttributes()->union(c.parents().allAttributes())->size()
+/]
+
 [query public getId(c : Class) : Property =
 c.allAttributes()->any(isID())
 /]

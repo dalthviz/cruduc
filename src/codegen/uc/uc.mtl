@@ -13,7 +13,7 @@
 |Entidad| DET (Atributos diferentes de asociacones)|
 | ------ | ---------------------------------- |
 [for (c : Class | m.getClasses())]
-| ['['/]Entidad [c.name/][']'/](#entidad-[c.name.toLowerCase()/]---casos-de-uso) | [c.allAttributes()->size()/] | 
+| ['['/]Entidad [c.name/][']'/](#entidad-[c.name.toLowerCase()/]---casos-de-uso) | [c.getNumAttribs()/] | 
 [/for]
 
 Número de clases: [m.getClasses()->size()/]
