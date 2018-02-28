@@ -6,7 +6,6 @@
 [import ::utils/]
 [template public generate(m : Model)]
 [comment @main/]
-
 [file ('UC.md', false, 'UTF-8')]
 # Lista de entidades
 
@@ -17,6 +16,34 @@
 [/for]
 
 Número de clases: [m.getClasses()->size()/]
+
+[if  (valueOf(m, 'FP')) <> null ]
+# Tablas de conversiones
+
+## External Input (EI)
+
+| | 1 a 4 DET | 5 a 15 DET | 16 o más DET |
+| 0 a 1 FTR | [valueOf(m, 'LOW_EI')/] | [valueOf(m, 'LOW_EI')/] | [valueOf(m, 'MEDIUM_EI')/] |
+| 2 FTRs | [valueOf(m, 'LOW_EI')/] | [valueOf(m, 'MEDIUM_EI')/] | [valueOf(m, 'HIGH_EI')/] |
+| 3 o más FTRS | [valueOf(m, 'MEDIUM_EI')/] | [valueOf(m, 'HIGH_EI')/] | [valueOf(m, 'HIGH_EI')/] |
+
+## External Output (EO)
+
+| | 1 a 4 DET | 5 a 15 DET | 16 o más DET |
+| 0 a 1 FTR | [valueOf(m, 'LOW_EO')/] | [valueOf(m, 'LOW_EO')/] | [valueOf(m, 'MEDIUM_EO')/] |
+| 2 a 3 FTRs | [valueOf(m, 'LOW_EO')/] | [valueOf(m, 'MEDIUM_EO')/] | [valueOf(m, 'HIGH_EO')/] |
+| 4 o más FTRS | [valueOf(m, 'MEDIUM_EO')/] | [valueOf(m, 'HIGH_EO')/] | [valueOf(m, 'HIGH_EO')/] |
+
+
+## External inQuiry (EQ)
+
+| | 1 a 4 DET | 5 a 15 DET | 16 o más DET |
+| 0 a 1 FTR | [valueOf(m, 'LOW_EO')/] | [valueOf(m, 'LOW_EO')/] | [valueOf(m, 'MEDIUM_EO')/] |
+| 2 a 3 FTRs | [valueOf(m, 'LOW_EO')/] | [valueOf(m, 'MEDIUM_EO')/] | [valueOf(m, 'HIGH_EO')/] |
+| 4 o más FTRS | [valueOf(m, 'MEDIUM_EO')/] | [valueOf(m, 'HIGH_EO')/] | [valueOf(m, 'HIGH_EO')/] |
+
+
+[/if]
 
 ['['/]Volver arriba[']'/](#lista-de-entidades)
 [/file]
