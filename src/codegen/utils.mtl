@@ -9,7 +9,7 @@ m.eContents()->select(e | e.oclIsTypeOf(Class))
 /]
 
 [query public getAllAttribs(c : Class) : OrderedSet(Property) =
-c.allAttributes()->reject(isID())
+c.allAttributes()->union(c.parents().allAttributes())->reject(isID())->asOrderedSet()
 /]
 
 [query public getNumAttribs(c : Class) : Integer =

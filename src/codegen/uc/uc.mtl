@@ -13,10 +13,12 @@
 |Entidad| DET (Atributos diferentes de asociaciones)|
 | ------ | ---------------------------------- |
 [for (c : Class | m.getClasses())]
+[if(not c._isAbstract)]
 | ['['/]Entidad [c.name/][']'/](#entidad-[c.name.toLowerCase()/]---casos-de-uso) | [c.getNumAttribs()/] | 
+[/if]
 [/for]
 
-Número de clases: [m.getClasses()->size()/]
+Número de clases: [m.getClasses()->reject(_isAbstract)->size()/]
 
 [if  (m.hasProperty('FP'))  ]
 # Tablas de conversiones
