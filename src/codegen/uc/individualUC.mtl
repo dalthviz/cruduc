@@ -6,6 +6,7 @@
 [import ::utils/]
 [template public generate(c : Class)]
 [comment @main/]
+[if(not c._isAbstract)]
 [file ('UC' + c.getName() + '.md', false, 'UTF-8')]
 ## Entidad [c.name/] - Casos de Uso
  - ['['/]Crear [c.name.toLowerCase()/][']'/](#uc-crear-[c.name.toLowerCase()/])
@@ -85,5 +86,5 @@
 
 ['['/]Volver arriba[']'/](#lista-de-entidades)
 [/file]
-
+[/if]
 [/template]
