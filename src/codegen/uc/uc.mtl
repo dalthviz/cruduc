@@ -17,6 +17,12 @@
 | ['['/]Entidad [c.name/][']'/](#entidad-[c.name.toLowerCase()/]---casos-de-uso) | [c.getNumAttribs()/] | 
 [/if]
 [/for]
+[for (c : Class | m.getClasses())]
+[if(c._isAbstract)]
+| Entidad Abstracta [c.name/] | [c.getNumAttribs()/] | 
+[/if]
+[/for]
+
 
 Número de clases: [m.getClasses()->reject(_isAbstract)->size()/]
 
