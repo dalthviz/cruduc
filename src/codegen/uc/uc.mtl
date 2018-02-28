@@ -17,7 +17,7 @@
 
 Número de clases: [m.getClasses()->size()/]
 
-[if  (valueOf(m, 'FP')) <> null ]
+[if  (valueOf(m, 'FP') <> null)  ]
 # Tablas de conversiones
 
 ## External Input (EI)
