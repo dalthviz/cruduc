@@ -17,46 +17,42 @@
 [/for]
 
 Número de clases: [m.getClasses()->size()/]
-[m.hasProperty('LOW_EI')/] 
-[m._eAnnotations/]
-[m.eAllContents()/] 
-[m.valueOf('FP')/]
-[valueOf(m, 'LOW_EI')/]
-[if  (m.valueOf('FP') <> null)  ]
+
+[if  (m.hasProperty('FP'))  ]
 # Tablas de conversiones
 
 ## External Input (EI)
 
 | | 1 a 4 DET | 5 a 15 DET | 16 o más DET |
 | -- | -- | -- | -- |
-| 0 a 1 FTR | [m.valueOf('LOW_EI')/] | [m.valueOf('LOW_EI')/] | [m.valueOf('MEDIUM_EI')/] |
-| 2 FTRs | [m.valueOf('LOW_EI')/] | [m.valueOf('MEDIUM_EI')/] | [m.valueOf('HIGH_EI')/] |
-| 3 o más FTRS | [m.valueOf('MEDIUM_EI')/] | [m.valueOf('HIGH_EI')/] | [m.valueOf('HIGH_EI')/] |
+| 0 a 1 FTR | [valueOf(m, 'LOW_EI')/] | [valueOf(m, 'LOW_EI')/] | [valueOf(m, 'MEDIUM_EI')/] |
+| 2 FTRs | [valueOf(m, 'LOW_EI')/] | [valueOf(m, 'MEDIUM_EI')/] | [valueOf(m, 'HIGH_EI')/] |
+| 3 o más FTRS | [valueOf(m, 'MEDIUM_EI')/] | [valueOf(m, 'HIGH_EI')/] | [valueOf(m, 'HIGH_EI')/] |
 
 ## External Output (EO)
 
 | | 1 a 4 DET | 5 a 15 DET | 16 o más DET |
 | -- | -- | -- | -- |
-| 0 a 1 FTR | [m.valueOf('LOW_EO')/] | [m.valueOf('LOW_EO')/] | [m.valueOf('MEDIUM_EO')/] |
-| 2 a 3 FTRs | [m.valueOf('LOW_EO')/] | [m.valueOf('MEDIUM_EO')/] | [m.valueOf('HIGH_EO')/] |
-| 4 o más FTRS | [m.valueOf('MEDIUM_EO')/] | [m.valueOf('HIGH_EO')/] | [m.valueOf('HIGH_EO')/] |
+| 0 a 1 FTR | [valueOf(m, 'LOW_EO')/] | [valueOf(m, 'LOW_EO')/] | [valueOf(m, 'MEDIUM_EO')/] |
+| 2 a 3 FTRs | [valueOf(m, 'LOW_EO')/] | [valueOf(m, 'MEDIUM_EO')/] | [valueOf(m, 'HIGH_EO')/] |
+| 4 o más FTRS | [valueOf(m, 'MEDIUM_EO')/] | [valueOf(m, 'HIGH_EO')/] | [valueOf(m, 'HIGH_EO')/] |
 
 
 ## External inQuiry (EQ)
 
 | | 1 a 4 DET | 5 a 15 DET | 16 o más DET |
 | -- | -- | -- | -- |
-| 0 a 1 FTR | [m.getProperty('LOW_EQ')/] | [m.valueOf('LOW_EQ')/] | [m.valueOf('MEDIUM_EQ')/] |
-| 2 a 3 FTRs | [m.valueOf('LOW_EQ')/] | [m.valueOf('MEDIUM_EQ')/] | [m.valueOf('HIGH_EQ')/] |
-| 4 o más FTRS | [m.valueOf('MEDIUM_EQ')/] | [m.valueOf('HIGH_EQ')/] | [m.valueOf('HIGH_EQ')/] |
+| 0 a 1 FTR | [valueOf(m, 'LOW_EQ')/] | [valueOf(m, 'LOW_EQ')/] | [valueOf(m, 'MEDIUM_EQ')/] |
+| 2 a 3 FTRs | [valueOf(m, 'LOW_EQ')/] | [valueOf(m, 'MEDIUM_EQ')/] | [valueOf(m, 'HIGH_EQ')/] |
+| 4 o más FTRS | [valueOf(m, 'MEDIUM_EQ')/] | [valueOf(m, 'HIGH_EQ')/] | [valueOf(m, 'HIGH_EQ')/] |
 
 ## Internal Logical File (ILF)
 
 | | 1 a 19 DET | 20 a 50 DET | 51 más DET |
 | -- | -- | -- | -- |
-| 1 RET | [m.valueOf('LOW_ILF')/] | [m.valueOf('LOW_ILF')/] | [m.valueOf('MEDIUM_ILF')/] |
-| 2 a 5 RETs | [m.valueOf('LOW_ILF')/] | [m.valueOf('MEDIUM_ILF')/] | [m.valueOf('HIGH_ILF')/] |
-| 5 o más RETS | [m.valueOf('MEDIUM_ILF')/] | [m.valueOf('HIGH_ILF')/] | [m.valueOf('HIGH_ILF')/] |
+| 1 RET | [valueOf(m, 'LOW_ILF')/] | [valueOf(m, 'LOW_ILF')/] | [valueOf(m, 'MEDIUM_ILF')/] |
+| 2 a 5 RETs | [valueOf(m, 'LOW_ILF')/] | [valueOf(m, 'MEDIUM_ILF')/] | [valueOf(m, 'HIGH_ILF')/] |
+| 5 o más RETS | [valueOf(m, 'MEDIUM_ILF')/] | [valueOf(m, 'HIGH_ILF')/] | [valueOf(m, 'HIGH_ILF')/] |
 
 
 [else]
