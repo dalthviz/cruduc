@@ -566,7 +566,7 @@ SOFTWARE.
 |Postcondici&oacute;n:|  |
 |Caminos de excepci&oacute;n ||
 
-[if/]
+[/if]
 [/for]
 [/if]
 [/template]
