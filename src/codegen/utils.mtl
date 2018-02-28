@@ -204,6 +204,7 @@ null
 endif
 /]
 
+
 [template public getJavaType(a : Property) post (trim())]
 [if (a.type.name = 'Image')]
     String
