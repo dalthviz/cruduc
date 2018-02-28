@@ -75,7 +75,6 @@ c.getAssociations()->union(c.parents().getAssociations())->collect( asc |
                 a.getUpper() = 1
             and a.aggregation = AggregationKind::none)
         )
-        and (a.isComposite() implies a.getOtherEnd().isNavigable())
     )
 )->asSet()
 /]
@@ -177,8 +176,9 @@ Set{'String','Boolean', 'Date', 'Long', 'Integer', 'Image'}->exists(t | a.type <
     a.isNavigable()
 and (
     not a.getOtherEnd().isNavigable()
-    or  (a.isMany2One())
+    or  (a.isOne2Many())
     or  ((a.isMany2Many() or a.isOne2One()) and a.name < a.getOtherEnd().name)
+	or  a.isComposite()
 )
 /]
 
@@ -486,13 +486,11 @@ SOFTWARE.
 [template public getPropertiesCase4Menu(c : Class)]
 [if (c.hasRelationshipAttributes())]
 [for (a : Property | c.getRelationshipAttributes())] 
-[if (a.isRelationshipOwner() <> 'true' and a.isOne2Many() and a.isComposite())]
- - ['['/]Crear _[a.name/]_ a [c.name/][']'/](#uc-crear-[a.name/]-a-[c.name.toLowerCase()/])
+[if (a.isRelationshipOwner() and a.isComposite())]
+- ['['/]Crear _[a.name/]_ a [c.name/][']'/](#uc-crear-[a.name/]-a-[c.name.toLowerCase()/])
  - ['['/]Editar _[a.name/]_ a [c.name/][']'/](#uc-editar-[a.name/]-a-[c.name.toLowerCase()/])
  - ['['/]Eliminar _[a.name/]_ a [c.name/][']'/](#uc-eliminar-[a.name/]-a-[c.name.toLowerCase()/])
  - ['['/]Listar _[a.name/]_ a [c.name/][']'/](#uc-listar-[a.name/]-a-[c.name.toLowerCase()/])
-[else]
-[null/]
 [/if]
 [/for]
 [/if]
@@ -502,7 +500,7 @@ SOFTWARE.
 [template public getPropertiesCase4(c : Class)]
 [if (c.hasRelationshipAttributes())]
 [for (a : Property | c.getRelationshipAttributes())] 
-[if (a.isRelationshipOwner() <> 'true' and a.isOne2Many() and a.isComposite())]
+[if (a.isRelationshipOwner() and a.isComposite())]
 ### UC crear _[a.name/]_ a [c.name/]
 | Item | Descripci&oacute;n |
 |----------------------|-------------------------------------------|
@@ -567,9 +565,8 @@ SOFTWARE.
 |                        | 3. La aplicaci&oacute;n muestra la informaci&oacute;n de [a.name/] asociadas a [c.name/].|
 |Postcondici&oacute;n:|  |
 |Caminos de excepci&oacute;n ||
-[else]
-[null/]
-[/if]
+
+[if/]
 [/for]
 [/if]
 [/template]
@@ -640,6 +637,7 @@ SOFTWARE.
 |                        | 3. La aplicaci&oacute;n elimina [a.name/] de [c.name/].|
 |Postcondici&oacute;n:|  |
 |Caminos de excepci&oacute;n ||
+
 [else]
 [null/]
 [/if]
