@@ -573,6 +573,79 @@ SOFTWARE.
 [/if]
 [/template]
 
+[comment]Template para leer los atributos del caso relaciones unidireccionales - menu [/comment]
+[template public getPropertiesCaseRelMenu(c : Class)]
+[if (c.hasRelationshipAttributes())]
+[for (a : Property | c.getRelationshipAttributes())] 
+[if (a.isRelationshipOwner() and not a.getOtherEnd().isNavigable() and not a.isComposite())]
+ - ['['/]Agregar _[a.name/]_ a [c.name/][']'/](#uc-agregar-[a.name/]-a-[c.name.toLowerCase()/])
+ - ['['/]Listar _[a.name/]_ a [c.name/][']'/](#uc-listar-[a.name/]-a-[c.name.toLowerCase()/])
+ - ['['/]Eliminar _[a.name/]_ a [c.name/][']'/](#uc-eliminar-[a.name/]-a-[c.name.toLowerCase()/])
+[else]
+[null/]
+[/if]
+[/for]
+[/if]
+[/template]
+
+[comment]Template para leer los atributos del caso relaciones unidireccionales [/comment]
+[template public getPropertiesCaseRel(c : Class)]
+[if (c.hasRelationshipAttributes())]
+[for (a : Property | c.getRelationshipAttributes())] 
+[if (a.isRelationshipOwner() and not a.getOtherEnd().isNavigable() and not a.isComposite())]
+### UC Agregar _[a.name/]_ a [c.name/]
+| Item | Descripci&oacute;n |
+|----------------------|-------------------------------------------|
+|Id caso de uso:| R000 |
+|Nombre caso de uso:| Agregar [a.name/] |
+|Autor: | @Generated |
+[c.getActor()/]
+|Resumen:| El actor agrega [a.name/] en la aplicaci&oacute;n a [c.name/].|
+|Precondici&oacute;n: | |
+|Curso b&aacute;sico de eventos:| 1. El actor ingresa a la aplicaci&oacute;n.|
+|                        | 2. El actor selecciona la opci&oacute;n de [c.name/] para agregar .|
+|                        | 3. El actor selecciona la opci&oacute;n de agregar [a.name/].|
+|                        | 4. El actor selecciona [a.name/].|
+|                        | 5. Se guardan cambios de [c.name/].|
+|Postcondici&oacute;n:|  |
+|Caminos de excepci&oacute;n ||
+
+### UC Listar _[a.name/]_ a [c.name/]
+| Item | Descripci&oacute;n |
+|----------------------|-------------------------------------------|
+|Id caso de uso:| R000 |
+|Nombre caso de uso:| Listar [a.name/] |
+|Autor: | @Generated |
+[c.getActor()/]
+|Resumen:| El actor lista [a.name/] en la aplicaci&oacute;n a [c.name/].|
+|Precondici&oacute;n: | |
+|Curso b&aacute;sico de eventos:| 1. El actor ingresa a la aplicaci&oacute;n.|
+|                        | 2. El actor selecciona la opci&oacute;n de listar [c.name/].|
+|                        | 3. La aplicaci&oacute;n muestra la informaci&oacute;n de [a.name/] asociadas a [c.name/].|
+|Postcondici&oacute;n:|  |
+|Caminos de excepci&oacute;n ||
+
+### UC Eliminar _[a.name/]_ a [c.name/]
+| Item | Descripci&oacute;n |
+|----------------------|-------------------------------------------|
+|Id caso de uso:| R000 |
+|Nombre caso de uso:| Eliminar [a.name/] |
+|Autor: | @Generated |
+[c.getActor()/]
+|Resumen:| El actor elimina [a.name/] en la aplicaci&oacute;n a [c.name/].|
+|Precondici&oacute;n: | |
+|Curso b&aacute;sico de eventos:| 1. El actor ingresa a la aplicaci&oacute;n.|
+|                        | 2. El actor selecciona la opci&oacute;n de eliminar [a.name/] para [c.name/].|
+|                        | 3. La aplicaci&oacute;n elimina [a.name/] de [c.name/].|
+|Postcondici&oacute;n:|  |
+|Caminos de excepci&oacute;n ||
+[else]
+[null/]
+[/if]
+[/for]
+[/if]
+[/template]
+
 [comment]Template para obtener el actor de cada clase:
 1. Si, se define la propiedad Actor por clase se asocia el valor.
 2. Si no hay propiedad Actor, se imprime la palabra Actor.
