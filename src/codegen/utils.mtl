@@ -413,7 +413,7 @@ SOFTWARE.
 [template public getPropertiesCase3(c : Class)]
 [if (c.hasRelationshipAttributes())]
 [for (a : Property | c.getRelationshipAttributes())] 
-[if (a.isRelationshipOwner() and a.isOne2Many())]
+[if (a.isRelationshipOwner() and a.isOne2Many() and not a.isComposite())]
 ### UC Agregar _[a.name/]_ a [c.name/]
 | Item | Descripci&oacute;n |
 |----------------------|-------------------------------------------|
@@ -471,7 +471,7 @@ SOFTWARE.
 [template public getPropertiesCase3Menu(c : Class)]
 [if (c.hasRelationshipAttributes())]
 [for (a : Property | c.getRelationshipAttributes())] 
-[if (a.isRelationshipOwner() and a.isOne2Many())]
+[if (a.isRelationshipOwner() and a.isOne2Many() and not a.isComposite())]
  - ['['/]Agregar _[a.name/]_ a [c.name/][']'/](#uc-agregar-[a.name/]-a-[c.name.toLowerCase()/])
  - ['['/]Listar _[a.name/]_ a [c.name/][']'/](#uc-listar-[a.name/]-a-[c.name.toLowerCase()/])
  - ['['/]Eliminar _[a.name/]_ a [c.name/][']'/](#uc-eliminar-[a.name/]-a-[c.name.toLowerCase()/])
