@@ -23,6 +23,7 @@ Número de clases: [m.getClasses()->size()/]
 ## External Input (EI)
 
 | | 1 a 4 DET | 5 a 15 DET | 16 o más DET |
+| -- | -- | -- | -- |
 | 0 a 1 FTR | [m.valueOf('LOW_EI')/] | [m.valueOf('LOW_EI')/] | [m.valueOf('MEDIUM_EI')/] |
 | 2 FTRs | [m.valueOf('LOW_EI')/] | [m.valueOf('MEDIUM_EI')/] | [m.valueOf('HIGH_EI')/] |
 | 3 o más FTRS | [m.valueOf('MEDIUM_EI')/] | [m.valueOf('HIGH_EI')/] | [m.valueOf('HIGH_EI')/] |
@@ -30,6 +31,7 @@ Número de clases: [m.getClasses()->size()/]
 ## External Output (EO)
 
 | | 1 a 4 DET | 5 a 15 DET | 16 o más DET |
+| -- | -- | -- | -- |
 | 0 a 1 FTR | [m.valueOf('LOW_EO')/] | [m.valueOf('LOW_EO')/] | [m.valueOf('MEDIUM_EO')/] |
 | 2 a 3 FTRs | [m.valueOf('LOW_EO')/] | [m.valueOf('MEDIUM_EO')/] | [m.valueOf('HIGH_EO')/] |
 | 4 o más FTRS | [m.valueOf('MEDIUM_EO')/] | [m.valueOf('HIGH_EO')/] | [m.valueOf('HIGH_EO')/] |
@@ -38,6 +40,7 @@ Número de clases: [m.getClasses()->size()/]
 ## External inQuiry (EQ)
 
 | | 1 a 4 DET | 5 a 15 DET | 16 o más DET |
+| -- | -- | -- | -- |
 | 0 a 1 FTR | [m.valueOf('LOW_EO')/] | [m.valueOf('LOW_EO')/] | [m.valueOf('MEDIUM_EO')/] |
 | 2 a 3 FTRs | [m.valueOf('LOW_EO')/] | [m.valueOf('MEDIUM_EO')/] | [m.valueOf('HIGH_EO')/] |
 | 4 o más FTRS | [m.valueOf('MEDIUM_EO')/] | [m.valueOf('HIGH_EO')/] | [m.valueOf('HIGH_EO')/] |
@@ -45,6 +48,7 @@ Número de clases: [m.getClasses()->size()/]
 ## Internal Logical File (ILF)
 
 | | 1 a 19 DET | 20 a 50 DET | 51 más DET |
+| -- | -- | -- | -- |
 | 1 RET | [m.valueOf('LOW_ILF')/] | [m.valueOf('LOW_ILF')/] | [m.valueOf('MEDIUM_ILF')/] |
 | 2 a 5 RETs | [m.valueOf('LOW_ILF')/] | [m.valueOf('MEDIUM_ILF')/] | [m.valueOf('HIGH_ILF')/] |
 | 5 o más RETS | [m.valueOf('MEDIUM_ILF')/] | [m.valueOf('HIGH_ILF')/] | [m.valueOf('HIGH_ILF')/] |
@@ -57,13 +61,15 @@ Número de clases: [m.getClasses()->size()/]
 ## External Input (EI)
 
 | | 1 a 4 DET | 5 a 15 DET | 16 o más DET |
+| -- | -- | -- | -- |
 | 0 a 1 FTR | [getProperty('LOW_EI')/] | [getProperty('LOW_EI')/] | [getProperty('MEDIUM_EI')/] |
 | 2 FTRs | [getProperty('LOW_EI')/] | [getProperty('MEDIUM_EI')/] | [getProperty('HIGH_EI')/] |
 | 3 o más FTRS | [getProperty('MEDIUM_EI')/] | [getProperty('HIGH_EI')/] | [getProperty('HIGH_EI')/] |
 
 ## External Output (EO)
 
-| | 1 a 4 DET | 5 a 15 DET | 16 o más DET |
+|  | 1 a 4 DET | 5 a 15 DET | 16 o más DET |
+| -- | -- | -- | -- |
 | 0 a 1 FTR | [getProperty('LOW_EO')/] | [getProperty('LOW_EO')/] | [getProperty('MEDIUM_EO')/] |
 | 2 a 3 FTRs | [getProperty('LOW_EO')/] | [getProperty('MEDIUM_EO')/] | [getProperty('HIGH_EO')/] |
 | 4 o más FTRS | [getProperty('MEDIUM_EO')/] | [getProperty('HIGH_EO')/] | [getProperty('HIGH_EO')/] |
@@ -72,6 +78,7 @@ Número de clases: [m.getClasses()->size()/]
 ## External inQuiry (EQ)
 
 | | 1 a 4 DET | 5 a 15 DET | 16 o más DET |
+| -- | -- | -- | -- |
 | 0 a 1 FTR | [getProperty('LOW_EO')/] | [getProperty('LOW_EO')/] | [getProperty('MEDIUM_EO')/] |
 | 2 a 3 FTRs | [getProperty('LOW_EO')/] | [getProperty('MEDIUM_EO')/] | [getProperty('HIGH_EO')/] |
 | 4 o más FTRS | [getProperty('MEDIUM_EO')/] | [getProperty('HIGH_EO')/] | [getProperty('HIGH_EO')/] |
@@ -79,6 +86,7 @@ Número de clases: [m.getClasses()->size()/]
 ## Internal Logical File (ILF)
 
 | | 1 a 19 DET | 20 a 50 DET | 51 más DET |
+| -- | -- | -- | -- |
 | 1 RET | [getProperty('LOW_ILF')/] | [getProperty('LOW_ILF')/] | [getProperty('MEDIUM_ILF')/] |
 | 2 a 5 RETs | [getProperty('LOW_ILF')/] | [getProperty('MEDIUM_ILF')/] | [getProperty('HIGH_ILF')/] |
 | 5 o más RETS | [getProperty('MEDIUM_ILF')/] | [getProperty('HIGH_ILF')/] | [getProperty('HIGH_ILF')/] |
