@@ -12,6 +12,7 @@
  - ['['/]Consultar [c.name.toLowerCase()/][']'/](#uc-consultar-[c.name.toLowerCase()/])
  - ['['/]Editar [c.name.toLowerCase()/][']'/](#uc-editar-[c.name.toLowerCase()/])
  - ['['/]Eliminar [c.name.toLowerCase()/][']'/](#uc-eliminar-[c.name.toLowerCase()/])
+[c.getPropertiesCaseRelMenu()/]
 [c.getPropertiesCase3Menu()/]
 [c.getPropertiesCase4Menu()/]
 
@@ -78,9 +79,8 @@
 |Postcondici&oacute;n:|  |
 |Caminos de excepci&oacute;n ||
 
-
+[c.getPropertiesCaseRel()/]
 [c.getPropertiesCase3()/]
-
 [c.getPropertiesCase4()/]
 
 ['['/]Volver arriba[']'/](#lista-de-entidades)

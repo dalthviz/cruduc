@@ -4,6 +4,7 @@
  */]
 [module uc('http://www.eclipse.org/uml2/5.0.0/UML')]
 [import ::utils/]
+
 [template public generate(m : Model)]
 [comment @main/]
 [file ('UC.md', false, 'UTF-8')]
@@ -41,9 +42,9 @@ Número de clases: [m.getClasses()->size()/]
 
 | | 1 a 4 DET | 5 a 15 DET | 16 o más DET |
 | -- | -- | -- | -- |
-| 0 a 1 FTR | [m.valueOf('LOW_EO')/] | [m.valueOf('LOW_EO')/] | [m.valueOf('MEDIUM_EO')/] |
-| 2 a 3 FTRs | [m.valueOf('LOW_EO')/] | [m.valueOf('MEDIUM_EO')/] | [m.valueOf('HIGH_EO')/] |
-| 4 o más FTRS | [m.valueOf('MEDIUM_EO')/] | [m.valueOf('HIGH_EO')/] | [m.valueOf('HIGH_EO')/] |
+| 0 a 1 FTR | [m.valueOf('LOW_EQ')/] | [m.valueOf('LOW_EQ')/] | [m.valueOf('MEDIUM_EQ')/] |
+| 2 a 3 FTRs | [m.valueOf('LOW_EQ')/] | [m.valueOf('MEDIUM_EQ')/] | [m.valueOf('HIGH_EQ')/] |
+| 4 o más FTRS | [m.valueOf('MEDIUM_EQ')/] | [m.valueOf('HIGH_EQ')/] | [m.valueOf('HIGH_EQ')/] |
 
 ## Internal Logical File (ILF)
 
@@ -70,18 +71,18 @@ Número de clases: [m.getClasses()->size()/]
 
 |  | 1 a 4 DET | 5 a 15 DET | 16 o más DET |
 | -- | -- | -- | -- |
-| 0 a 1 FTR | [getProperty('LOW_EO')/] | [getProperty('LOW_EO')/] | [getProperty('MEDIUM_EO')/] |
-| 2 a 3 FTRs | [getProperty('LOW_EO')/] | [getProperty('MEDIUM_EO')/] | [getProperty('HIGH_EO')/] |
-| 4 o más FTRS | [getProperty('MEDIUM_EO')/] | [getProperty('HIGH_EO')/] | [getProperty('HIGH_EO')/] |
+| 0 a 1 FTR | [getProperty('LOW_EQ')/] | [getProperty('LOW_EO')/] | [getProperty('MEDIUM_EO')/] |
+| 2 a 3 FTRs | [getProperty('LOW_EQ')/] | [getProperty('MEDIUM_EO')/] | [getProperty('HIGH_EO')/] |
+| 4 o más FTRS | [getProperty('MEDIUM_EQ')/] | [getProperty('HIGH_EO')/] | [getProperty('HIGH_EO')/] |
 
 
 ## External inQuiry (EQ)
 
 | | 1 a 4 DET | 5 a 15 DET | 16 o más DET |
 | -- | -- | -- | -- |
-| 0 a 1 FTR | [getProperty('LOW_EO')/] | [getProperty('LOW_EO')/] | [getProperty('MEDIUM_EO')/] |
-| 2 a 3 FTRs | [getProperty('LOW_EO')/] | [getProperty('MEDIUM_EO')/] | [getProperty('HIGH_EO')/] |
-| 4 o más FTRS | [getProperty('MEDIUM_EO')/] | [getProperty('HIGH_EO')/] | [getProperty('HIGH_EO')/] |
+| 0 a 1 FTR | [getProperty('points.properties', 'LOW_EQ')/] | [getProperty('points.properties', 'LOW_EQ')/] | [getProperty('points.properties', 'MEDIUM_EQ')/] |
+| 2 a 3 FTRs | [getProperty('LOW_EQ')/] | [getProperty('MEDIUM_EQ')/] | [getProperty('HIGH_EQ')/] |
+| 4 o más FTRS | [getProperty('MEDIUM_EQ')/] | [getProperty('HIGH_EQ')/] | [getProperty('HIGH_EQ')/] |
 
 ## Internal Logical File (ILF)
 
