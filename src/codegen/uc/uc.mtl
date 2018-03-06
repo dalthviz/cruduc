@@ -31,11 +31,13 @@ Número de clases: [m.getClasses()->size()/]
 
 ['['/]## Puntos de función por caso de uso[']'/](#casos-puntos-funcion)
 
-| Caso | Nombre | Tipo | DET | FTR/RET | Complejidad | PF | 
-| -- | -- | -- | -- | -- | -- | -- |
-[for (m.getClasses())]
-
-| -- | -- | -- | -- | -- | -- | -- |
+| Nombre | Tipo | DET | FTR/RET | Complejidad | PF | 
+| -- | -- | -- | -- | -- | -- |
+[for (cl: Class | m.getClasses())]
+[if (cl.getNumAttribs()<=19 and (cl.getCompositeCollectionAttributes()->size() = 1 or 
+(cl.getCompositeCollectionAttributes()->size() >= 2 and cl.getCompositeCollectionAttributes()->size() <= 5 )))]
+| cl.name | ILF | [cl.getNumAttribs()/] | [cl.getCompositeCollectionAttributes()->size()/] | LOW | [valueOf(m, 'LOW_ILF')/] |
+[/if]
 [/for]
 
 ## Tablas de para cálculo de Puntos de Función
