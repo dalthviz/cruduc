@@ -12,9 +12,65 @@ m.eContents()->select(e | e.oclIsTypeOf(Class))
 c.allAttributes()->union(c.parents().allAttributes())->reject(isID())->asOrderedSet()
 /]
 
+[**
+ * Obtiene los atributos asociados a la clase incluyedo atributos heredados
+*/]
 [query public getNumAttribs(c : Class) : Integer =
 c.allAttributes()->union(c.parents().allAttributes())->size()
 /]
+
+
+[**
+ * Obtiene cantidad de relaciones de composición de la clase
+*/]
+[query public getCompositeSize(c : Class): Integer = 
+c.getCompositeCollectionAttributes()->size()
+/]
+
+[**
+ * Constantes
+*/]
+[query public getLowEI(e : Element): Integer = 3/]
+
+[query public getMediumEI(e : Element): Integer = 4/]
+
+[query public getHighEI(e : Element): Integer = 6/]
+
+[query public getLowEO(e : Element): Integer = 4/]
+
+[query public getMediumEO(e : Element): Integer = 5/]
+
+[query public getHighEO(e : Element): Integer = 7/]
+
+[query public getLowEQ(e : Element): Integer = 3/]
+
+[query public getMediumEQ(e : Element): Integer = 4/]
+
+[query public getHighEQ(e : Element): Integer = 6/]
+
+[query public getLowILF(e : Element): Integer = 7/]
+
+[query public getMediumILF(e : Element): Integer = 10/]
+
+[query public getHighILF(e : Element): Integer = 15/]
+
+
+
+[**
+ * Determina si la complejidad es baja ILF
+*/]
+
+
+[**
+ * Determina si la complejidad es media ILF 
+*/]
+
+
+[**
+ * Determina si la complejidad es alta ILF
+*/]
+
+
 
 [query public getId(c : Class) : Property =
 c.allAttributes()->any(isID())

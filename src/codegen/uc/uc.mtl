@@ -27,12 +27,11 @@ Número de clases: [m.getClasses()->size()/]
 
 # Estimación mediante Puntos de Función
 
-[if  (m.hasProperty('FP'))  ]
-
 ['['/]## Puntos de función por caso de uso[']'/](#casos-puntos-funcion)
 
 | Nombre | Tipo | DET | FTR/RET | Complejidad | PF | 
 | -- | -- | -- | -- | -- | -- |
+[if  (m.hasProperty('FP'))  ]
 [for (cl: Class | m.getClasses())]
 [if ((cl.getNumAttribs()<=19 and (cl.getCompositeCollectionAttributes()->size() >= 1 
 and cl.getCompositeCollectionAttributes()->size() <= 5)) or
@@ -42,7 +41,6 @@ and cl.getCompositeCollectionAttributes()->size() <= 5)) or
 and  cl.getCompositeCollectionAttributes()->size() > 5 ))]
 | [cl.name/] | ILF | [cl.getNumAttribs()/] | [cl.getCompositeCollectionAttributes()->size()/] | MEDIUM | [valueOf(m, 'MEDIUM_ILF')/] |
 [/if]
-
 [/for]
 
 ## Tablas de para cálculo de Puntos de Función
@@ -81,6 +79,17 @@ and  cl.getCompositeCollectionAttributes()->size() > 5 ))]
 | 5 o más RETS | [valueOf(m, 'MEDIUM_ILF')/] | [valueOf(m, 'HIGH_ILF')/] | [valueOf(m, 'HIGH_ILF')/] |
 
 [else]
+[for (cl: Class | m.getClasses())]
+[if ((cl.getNumAttribs()<=19 and (cl.getCompositeCollectionAttributes()->size() >= 1 
+and cl.getCompositeCollectionAttributes()->size() <= 5)) or
+(cl.getNumAttribs()>=20 and cl.getNumAttribs() <=50 and (cl.getCompositeCollectionAttributes()->size() = 1)))]
+| [cl.name/] | ILF | [cl.getNumAttribs()/] | [cl.getCompositeCollectionAttributes()->size()/] | LOW | [m.getLowILF()/] |
+[elseif(cl.getNumAttribs()<=19 and (cl.getCompositeCollectionAttributes()->size() >= 1 
+and  cl.getCompositeCollectionAttributes()->size() > 5 ))]
+| [cl.name/] | ILF | [cl.getNumAttribs()/] | [cl.getCompositeCollectionAttributes()->size()/] | MEDIUM | [m.getMediumILF()/] |
+[/if]
+[/for]
+
 ## Tablas de para cálculo de Puntos de Función
 
 ### External Input (EI)
@@ -112,9 +121,9 @@ and  cl.getCompositeCollectionAttributes()->size() > 5 ))]
 
 | | 1 a 19 DET | 20 a 50 DET | 51 más DET |
 | -- | -- | -- | -- |
-| 1 RET | [getProperty('LOW_ILF')/] | [getProperty('LOW_ILF')/] | [getProperty('MEDIUM_ILF')/] |
-| 2 a 5 RETs | [getProperty('LOW_ILF')/] | [getProperty('MEDIUM_ILF')/] | [getProperty('HIGH_ILF')/] |
-| 5 o más RETS | [getProperty('MEDIUM_ILF')/] | [getProperty('HIGH_ILF')/] | [getProperty('HIGH_ILF')/] |
+| 1 RET | [m.getLowILF()/] | [m.getLowILF()/] | [m.getMediumILF()/] |
+| 2 a 5 RETs | [m.getLowILF()/] | [m.getMediumILF()/] | [m.getHighILF()/] |
+| 5 o más RETS | [m.getMediumILF()/] | [m.getHighILF()/] | [m.getHighILF()/] |
 
 [/if]
 
