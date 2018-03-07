@@ -59,18 +59,23 @@ c.getCompositeCollectionAttributes()->size()
 [**
  * Determina si la complejidad es baja ILF
 */]
-
+[query public isLowILF(c: Class): Boolean = 
+( c.getNumAttribs()<=19 and ( c.getCompositeCollectionAttributes()->size() <= 5) )
+or
+(c.getNumAttribs()>=20 and c.getNumAttribs() <=50 and c.getCompositeCollectionAttributes()->size() = 1 )
+/]
 
 [**
  * Determina si la complejidad es media ILF 
 */]
 
-
-[**
- * Determina si la complejidad es alta ILF
-*/]
-
-
+[query public isMediumILF(c : Class) : Boolean = 
+(c.getNumAttribs()<=19 and c.getCompositeSize() > 5 )
+or
+(c.getNumAttribs()>=20 and c.getNumAttribs()<=50 and c.getCompositeSize()>=2 and c.getCompositeSize()<=5)
+or
+(c.getNumAttribs()>50 and c.getCompositeSize() = 1)
+/]
 
 [query public getId(c : Class) : Property =
 c.allAttributes()->any(isID())

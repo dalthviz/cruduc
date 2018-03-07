@@ -27,19 +27,18 @@ Número de clases: [m.getClasses()->size()/]
 
 # Estimación mediante Puntos de Función
 
-['['/]## Puntos de función por caso de uso[']'/](#casos-puntos-funcion)
+## Puntos de función por caso de uso
 
 | Nombre | Tipo | DET | FTR/RET | Complejidad | PF | 
 | -- | -- | -- | -- | -- | -- |
 [if  (m.hasProperty('FP'))  ]
 [for (cl: Class | m.getClasses())]
-[if ((cl.getNumAttribs()<=19 and (cl.getCompositeCollectionAttributes()->size() >= 1 
-and cl.getCompositeCollectionAttributes()->size() <= 5)) or
-(cl.getNumAttribs()>=20 and cl.getNumAttribs() <=50 and (cl.getCompositeCollectionAttributes()->size() = 1)))]
-| [cl.name/] | ILF | [cl.getNumAttribs()/] | [cl.getCompositeCollectionAttributes()->size()/] | LOW | [valueOf(m, 'LOW_ILF')/] |
-[elseif(cl.getNumAttribs()<=19 and (cl.getCompositeCollectionAttributes()->size() >= 1 
-and  cl.getCompositeCollectionAttributes()->size() > 5 ))]
-| [cl.name/] | ILF | [cl.getNumAttribs()/] | [cl.getCompositeCollectionAttributes()->size()/] | MEDIUM | [valueOf(m, 'MEDIUM_ILF')/] |
+[if (cl.isLowILF())]
+| [cl.name/] | ILF | [cl.getNumAttribs()/] | [Sequence{cl.getCompositeCollectionAttributes()->size(), 1}->sum()/] | LOW | [valueOf(m, 'LOW_ILF')/] |
+[elseif(cl.isMediumILF())]
+| [cl.name/] | ILF | [cl.getNumAttribs()/] | [Sequence{cl.getCompositeCollectionAttributes()->size(), 1}->sum()/] | MEDIUM | [valueOf(m, 'MEDIUM_ILF')/] |
+[else]
+| [cl.name/] | ILF | [cl.getNumAttribs()/] | [Sequence{cl.getCompositeCollectionAttributes()->size(), 1}->sum()/] | HIGH | [valueOf(m, 'HIGH_ILF')/] |
 [/if]
 [/for]
 
@@ -80,13 +79,12 @@ and  cl.getCompositeCollectionAttributes()->size() > 5 ))]
 
 [else]
 [for (cl: Class | m.getClasses())]
-[if ((cl.getNumAttribs()<=19 and (cl.getCompositeCollectionAttributes()->size() >= 1 
-and cl.getCompositeCollectionAttributes()->size() <= 5)) or
-(cl.getNumAttribs()>=20 and cl.getNumAttribs() <=50 and (cl.getCompositeCollectionAttributes()->size() = 1)))]
-| [cl.name/] | ILF | [cl.getNumAttribs()/] | [cl.getCompositeCollectionAttributes()->size()/] | LOW | [m.getLowILF()/] |
-[elseif(cl.getNumAttribs()<=19 and (cl.getCompositeCollectionAttributes()->size() >= 1 
-and  cl.getCompositeCollectionAttributes()->size() > 5 ))]
-| [cl.name/] | ILF | [cl.getNumAttribs()/] | [cl.getCompositeCollectionAttributes()->size()/] | MEDIUM | [m.getMediumILF()/] |
+[if (cl.isLowILF())]
+| [cl.name/] | ILF | [cl.getNumAttribs()/] | [Sequence{cl.getCompositeCollectionAttributes()->size(),1}->sum()/] | LOW | [cl.getLowILF()/] |
+[elseif(cl.isMediumILF())]
+| [cl.name/] | ILF | [cl.getNumAttribs()/] | [Sequence{cl.getCompositeCollectionAttributes()->size(),1}->sum()/] | MEDIUM | [cl.getMediumILF()/] |
+[else]
+| [cl.name/] | ILF | [cl.getNumAttribs()/] | [Sequence{cl.getCompositeCollectionAttributes()->size(), 1}->sum()/] | HIGH | [cl.getHighILF()/] |
 [/if]
 [/for]
 
@@ -96,26 +94,26 @@ and  cl.getCompositeCollectionAttributes()->size() > 5 ))]
 
 | | 1 a 4 DET | 5 a 15 DET | 16 o más DET |
 | -- | -- | -- | -- |
-| 0 a 1 FTR | [getProperty('LOW_EI')/] | [getProperty('LOW_EI')/] | [getProperty('MEDIUM_EI')/] |
-| 2 FTRs | [getProperty('LOW_EI')/] | [getProperty('MEDIUM_EI')/] | [getProperty('HIGH_EI')/] |
-| 3 o más FTRS | [getProperty('MEDIUM_EI')/] | [getProperty('HIGH_EI')/] | [getProperty('HIGH_EI')/] |
+| 0 a 1 FTR | [m.getLowEI()/] | [m.getLowEI()/] | [m.getMediumEI()/] |
+| 2 FTRs | [m.getLowEI()/] | [m.getMediumEI()/] | [m.getHighEI()/] |
+| 3 o más FTRS | [m.getMediumEI()/] | [m.getHighEI()/] | [m.getHighEI()/] |
 
 ### External Output (EO)
 
 |  | 1 a 4 DET | 5 a 15 DET | 16 o más DET |
 | -- | -- | -- | -- |
-| 0 a 1 FTR | [getProperty('LOW_EQ')/] | [getProperty('LOW_EO')/] | [getProperty('MEDIUM_EO')/] |
-| 2 a 3 FTRs | [getProperty('LOW_EQ')/] | [getProperty('MEDIUM_EO')/] | [getProperty('HIGH_EO')/] |
-| 4 o más FTRS | [getProperty('MEDIUM_EQ')/] | [getProperty('HIGH_EO')/] | [getProperty('HIGH_EO')/] |
+| 0 a 1 FTR | [m.getLowEO()/] | [m.getLowEO()/] | [m.getMediumEO()/] |
+| 2 a 3 FTRs | [m.getLowEO()/] | [m.getMediumEO()/] | [m.getHighEO()/] |
+| 4 o más FTRS | [m.getMediumEO()/] | [m.getHighEO()/] | [m.getHighEO()/] |
 
 
 ### External inQuiry (EQ)
 
 | | 1 a 4 DET | 5 a 15 DET | 16 o más DET |
 | -- | -- | -- | -- |
-| 0 a 1 FTR | [getProperty('points.properties', 'LOW_EQ')/] | [getProperty('points.properties', 'LOW_EQ')/] | [getProperty('points.properties', 'MEDIUM_EQ')/] |
-| 2 a 3 FTRs | [getProperty('LOW_EQ')/] | [getProperty('MEDIUM_EQ')/] | [getProperty('HIGH_EQ')/] |
-| 4 o más FTRS | [getProperty('MEDIUM_EQ')/] | [getProperty('HIGH_EQ')/] | [getProperty('HIGH_EQ')/] |
+| 0 a 1 FTR | [m.getLowEQ()/] | [m.getLowEQ()/] | [m.getMediumEQ()/] |
+| 2 a 3 FTRs | [m.getLowEQ()/] | [m.getMediumEQ()/] | [m.getHighEQ()/] |
+| 4 o más FTRS | [m.getMediumEQ()/] | [m.getHighEQ()/] | [m.getHighEQ()/] |
 
 ### Internal Logical File (ILF)
 
