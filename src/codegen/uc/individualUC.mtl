@@ -8,6 +8,7 @@
 [comment @main/]
 [if(not c._isAbstract)]
 [file ('UC' + c.getName() + '.md', false, 'UTF-8')]
+[if (not c.isCompositeChild())]
 ## Entidad [c.name/] - Casos de Uso
  - ['['/]Crear [c.name.toLowerCase()/][']'/](#uc-crear-[c.name.toLowerCase()/])
  - ['['/]Consultar [c.name.toLowerCase()/][']'/](#uc-consultar-[c.name.toLowerCase()/])
@@ -79,7 +80,7 @@
 |                        | 3. La aplicaci&oacute;n eliminar [c.name/].|
 |Postcondici&oacute;n:|  |
 |Caminos de excepci&oacute;n ||
-
+[/if]
 [c.getPropertiesCaseRel()/]
 [c.getPropertiesCase3()/]
 [c.getPropertiesCase4()/]

@@ -54,7 +54,19 @@ c.getCompositeCollectionAttributes()->size()
 
 [query public getHighILF(e : Element): Integer = 15/]
 
-
+[**
+ * Determina si la es hijo en relación composite
+*/]
+[query public isCompositeChild(c: Class): Boolean = 
+c.getAssociations()->union(c.parents().getAssociations())->collect( asc |
+    asc.getAllAttributes()->select(
+        a | not a.isNavigable()
+        and a.getUpper() <> 0
+        and a.getOtherEnd().isNavigable()
+        and a.getOtherEnd().isComposite()
+    )
+)->asSet()->size()<>0
+/]
 
 [**
  * Determina si la complejidad es baja ILF
