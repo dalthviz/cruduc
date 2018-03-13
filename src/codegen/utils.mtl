@@ -81,7 +81,7 @@ c.getAssociations()->union(c.parents().getAssociations())->collect( asc |
         and a.getOtherEnd().isNavigable()
         and a.getOtherEnd().isComposite()
     )
-)->asSet()->collect(col | col.type)->asSequence()
+)->asSet()->collect(col | col.type.name)->asSequence()
 /]
 
 
