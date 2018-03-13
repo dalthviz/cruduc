@@ -81,7 +81,9 @@
 |Postcondici&oacute;n:|  |
 |Caminos de excepci&oacute;n ||
 [else]
-** NOTA: La creación de esta entidad está determinada por la entidad [c.compositeChildAssociations().toString()/] **
+
+**_NOTA:_ La creación de esta entidad está determinada por la entidad _[c.compositeChildAssociations().toString()/]_**
+
 [/if]
 [c.getPropertiesCaseRel()/]
 [c.getPropertiesCase3()/]
