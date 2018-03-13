@@ -61,11 +61,12 @@ c.getCompositeCollectionAttributes()->size()
 c.getAssociations()->union(c.parents().getAssociations())->collect( asc |
     asc.getAllAttributes()->select(
         a | not a.isNavigable()
-        and a.getUpper() <> 0
+        and a.getOtherEnd().getUpper() <> 0
+		and a.getOtherEnd().type = c
         and a.getOtherEnd().isNavigable()
         and a.getOtherEnd().isComposite()
     )
-)->asSet()->size()<>0
+)->asSet()->size()=0
 /]
 
 [**
@@ -533,8 +534,7 @@ SOFTWARE.
 |                        | 3. La aplicaci&oacute;n elimina [a.name/] de [c.name/].|
 |Postcondici&oacute;n:|  |
 |Caminos de excepci&oacute;n ||
-[else]
-[null/]
+
 [/if]
 [/for]
 [/if]
@@ -548,8 +548,6 @@ SOFTWARE.
  - ['['/]Agregar _[a.name/]_ a [c.name/][']'/](#uc-agregar-[a.name/]-a-[c.name.toLowerCase()/])
  - ['['/]Listar _[a.name/]_ a [c.name/][']'/](#uc-listar-[a.name/]-a-[c.name.toLowerCase()/])
  - ['['/]Eliminar _[a.name/]_ a [c.name/][']'/](#uc-eliminar-[a.name/]-a-[c.name.toLowerCase()/])
-[else]
-[null/]
 [/if]
 [/for]
 [/if]
@@ -560,7 +558,7 @@ SOFTWARE.
 [if (c.hasRelationshipAttributes())]
 [for (a : Property | c.getRelationshipAttributes())] 
 [if (a.isRelationshipOwner() and a.isComposite())]
-- ['['/]Crear _[a.name/]_ a [c.name/][']'/](#uc-crear-[a.name/]-a-[c.name.toLowerCase()/])
+ - ['['/]Crear _[a.name/]_ a [c.name/][']'/](#uc-crear-[a.name/]-a-[c.name.toLowerCase()/])
  - ['['/]Editar _[a.name/]_ a [c.name/][']'/](#uc-editar-[a.name/]-a-[c.name.toLowerCase()/])
  - ['['/]Eliminar _[a.name/]_ a [c.name/][']'/](#uc-eliminar-[a.name/]-a-[c.name.toLowerCase()/])
  - ['['/]Listar _[a.name/]_ a [c.name/][']'/](#uc-listar-[a.name/]-a-[c.name.toLowerCase()/])
@@ -652,8 +650,6 @@ SOFTWARE.
  - ['['/]Agregar _[a.name/]_ a [c.name/][']'/](#uc-agregar-[a.name/]-a-[c.name.toLowerCase()/])
  - ['['/]Listar _[a.name/]_ a [c.name/][']'/](#uc-listar-[a.name/]-a-[c.name.toLowerCase()/])
  - ['['/]Eliminar _[a.name/]_ a [c.name/][']'/](#uc-eliminar-[a.name/]-a-[c.name.toLowerCase()/])
-[else]
-[null/]
 [/if]
 [/for]
 [/if]
@@ -711,8 +707,6 @@ SOFTWARE.
 |Postcondici&oacute;n:|  |
 |Caminos de excepci&oacute;n ||
 
-[else]
-[null/]
 [/if]
 [/for]
 [/if]

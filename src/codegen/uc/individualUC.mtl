@@ -8,15 +8,15 @@
 [comment @main/]
 [if(not c._isAbstract)]
 [file ('UC' + c.getName() + '.md', false, 'UTF-8')]
-[if (not c.isCompositeChild())]
 ## Entidad [c.name/] - Casos de Uso
+[c.getPropertiesCaseRelMenu()/]
+[c.getPropertiesCase3Menu()/]
+[c.getPropertiesCase4Menu()/]
+[if (c.isCompositeChild())]
  - ['['/]Crear [c.name.toLowerCase()/][']'/](#uc-crear-[c.name.toLowerCase()/])
  - ['['/]Consultar [c.name.toLowerCase()/][']'/](#uc-consultar-[c.name.toLowerCase()/])
  - ['['/]Editar [c.name.toLowerCase()/][']'/](#uc-editar-[c.name.toLowerCase()/])
  - ['['/]Eliminar [c.name.toLowerCase()/][']'/](#uc-eliminar-[c.name.toLowerCase()/])
-[c.getPropertiesCaseRelMenu()/]
-[c.getPropertiesCase3Menu()/]
-[c.getPropertiesCase4Menu()/]
 
 ### UC Crear [c.name.toLowerCase()/]
 | Item | Descripci&oacute;n |
