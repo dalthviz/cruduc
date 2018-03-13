@@ -70,6 +70,22 @@ c.getAssociations()->union(c.parents().getAssociations())->collect( asc |
 /]
 
 [**
+ * Los tipos padres de las asociaciones composite de las cuales la clase es hija.
+*/]
+[query public compositeChildAssociations(c: Class): Sequence(String) =
+c.getAssociations()->union(c.parents().getAssociations())->collect( asc |
+    asc.getAllAttributes()->select(
+        a | not a.isNavigable()
+        and a.getOtherEnd().getUpper() <> 0
+		and a.getOtherEnd().type = c
+        and a.getOtherEnd().isNavigable()
+        and a.getOtherEnd().isComposite()
+    )
+)->asSet()->collect(col | col.type)->asSequence()
+/]
+
+
+[**
  * Determina si la complejidad es baja ILF
 */]
 [query public isLowILF(c: Class): Boolean = 

@@ -80,6 +80,8 @@
 |                        | 3. La aplicaci&oacute;n eliminar [c.name/].|
 |Postcondici&oacute;n:|  |
 |Caminos de excepci&oacute;n ||
+[else]
+**NOTA: La creación de esta entidad está determinada por la entidad [c.compositeChildAssociations()/]
 [/if]
 [c.getPropertiesCaseRel()/]
 [c.getPropertiesCase3()/]
