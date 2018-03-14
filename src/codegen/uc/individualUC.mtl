@@ -12,7 +12,7 @@
 [c.getPropertiesCaseRelMenu()/]
 [c.getPropertiesCase3Menu()/]
 [c.getPropertiesCase4Menu()/]
-[if (c.isCompositeChild())]
+[if (not c.isCompositeChild())]
  - ['['/]Crear [c.name.toLowerCase()/][']'/](#uc-crear-[c.name.toLowerCase()/])
  - ['['/]Consultar [c.name.toLowerCase()/][']'/](#uc-consultar-[c.name.toLowerCase()/])
  - ['['/]Editar [c.name.toLowerCase()/][']'/](#uc-editar-[c.name.toLowerCase()/])
@@ -82,7 +82,7 @@
 |Caminos de excepci&oacute;n ||
 [else]
 
-**_NOTA:_ La creación de esta entidad está determinada por la entidad _[c.compositeChildAssociations().toString()/]_**
+**_NOTA:_ La creación, eliminación y edición de esta entidad está determinada por la entidad _[c.compositeChildAssociations().toString()/]_**
 
 [/if]
 [c.getPropertiesCaseRel()/]

@@ -86,6 +86,29 @@ Número de clases: [m.getClasses()->size()/]
 [else]
 | [cl.name/] | ILF | [cl.getNumAttribs()/] | [Sequence{cl.getCompositeCollectionAttributes()->size(), 1}->sum()/] | HIGH | [cl.getHighILF()/] |
 [/if]
+[if (not cl._isAbstract)]
+[if (cl.isLowEI(cl.detCreateEI(), cl.ftrCreateUpdateEI()))]
+| Crear [cl.name/] | EI | [cl.detCreateEI()/] | [cl.ftrCreateUpdateEI()/] | LOW | [cl.getLowEI()/] |
+[elseif(cl.isMediumEI(cl.detCreateEI(), cl.ftrCreateUpdateEI()))]
+| Crear [cl.name/] | EI | [cl.detCreateEI()/] | [cl.ftrCreateUpdateEI()/] | MEDIUM | [cl.getMediumEI()/] |
+[else]
+| Crear [cl.name/] | EI | [cl.detCreateEI()/] | [cl.ftrCreateUpdateEI()/] | HIGH | [cl.getHighEI()/] |
+[/if]
+[if (cl.isLowEI(cl.detUpdateEI(), cl.ftrCreateUpdateEI()))]
+| Actualizar [cl.name/]  | EI | [cl.detUpdateEI()/] | [cl.ftrCreateUpdateEI()/] | LOW | [cl.getLowEI()/] |
+[elseif(cl.isMediumEI(cl.detUpdateEI(), cl.ftrCreateUpdateEI()))]
+| Actualizar [cl.name/]  | EI | [cl.detUpdateEI()/] | [cl.ftrCreateUpdateEI()/] | MEDIUM | [cl.getMediumEI()/] |
+[else]
+| Actualizar [cl.name/] | EI | [cl.detUpdateEI()/] | [cl.ftrCreateUpdateEI()/] | HIGH | [cl.getHighEI()/] |
+[/if]
+[if (cl.isLowEI(cl.detDeleteEI(), cl.ftrDeleteEI()))]
+| Borrar [cl.name/] | EI | [cl.detDeleteEI()/] | [cl.ftrDeleteEI()/] | LOW | [cl.getLowEI()/] |
+[elseif(cl.isMediumEI(cl.detDeleteEI(), cl.ftrDeleteEI()))]
+| Borrar [cl.name/] | EI | [cl.detDeleteEI()/] | [cl.ftrDeleteEI()/] | MEDIUM | [cl.getMediumEI()/] |
+[else]
+| Borrar [cl.name/] | EI | [cl.detDeleteEI()/] | [cl.ftrDeleteEI()/] | HIGH | [cl.getHighEI()/] |
+[/if]
+[/if]
 [/for]
 
 ## Tablas de para cálculo de Puntos de Función

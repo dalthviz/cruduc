@@ -66,7 +66,7 @@ c.getAssociations()->union(c.parents().getAssociations())->collect( asc |
         and a.getOtherEnd().isNavigable()
         and a.getOtherEnd().isComposite()
     )
-)->asSet()->size()=0
+)->asSet()->size()<>0
 /]
 
 [**
@@ -104,6 +104,80 @@ or
 (c.getNumAttribs()>=20 and c.getNumAttribs()<=50 and c.getCompositeSize()>=2 and c.getCompositeSize()<=5)
 or
 (c.getNumAttribs()>50 and c.getCompositeSize() = 1)
+/]
+
+[**
+ * Determina si la complejidad es baja EI
+*/]
+[query public isLowEI(det: Integer, ftr: Integer): Boolean = 
+( det<=4 and ftr <= 2 )
+or
+( det >=5 and det <=15 and ftr <=1)
+/]
+
+[**
+ * Determina si la complejidad es media EI
+*/]
+
+[query public isMediumEI(det: Integer, ftr: Integer) : Boolean = 
+( det<=4 and det>=1 and ftr>2 )
+or
+( det >=5 and det <= 15 and ftr=2 )
+or
+( det>15 and ftr<=1 )
+/]
+
+[**
+ * Retorna la cantidad de det de la clase para borrar
+*/]
+[query public detDeleteEI(c: Class): Integer = 
+if(c.isCompositeChild())then
+2
+else
+1
+endif/]
+
+[**
+ * Retorna la cantidad de det de la clase para actualizar
+*/]
+[query public detUpdateEI(c: Class): Integer = 
+if(not c.isCompositeChild())then
+c.getNumAttribs()
+else
+Sequence{c.getNumAttribs(), 2}->sum()
+endif/]
+
+[**
+ * Retorna la cantidad de det de la clase para actualizar
+*/]
+[query public detCreateEI(c: Class): Integer = 
+if(not c.isCompositeChild())then
+c.getNumAttribs()
+else
+Sequence{c.getNumAttribs(), 1}->sum()
+endif
+/]
+
+[**
+ * Retorna la cantidad de FTR de la clase para borrar
+*/]
+[query public ftrDeleteEI(c: Class): Integer = 
+if(not c.isCompositeChild())then
+Sequence{c.getCompositeSize(),1}->sum()
+else
+c.compositeChildAssociations()->size()+1
+endif
+/]
+
+[**
+ * Retorna la cantidad de FTR de la clase para crear y actualizar
+*/]
+[query public ftrCreateUpdateEI(c: Class): Integer = 
+if(not c.isCompositeChild())then
+1
+else
+2
+endif
 /]
 
 [query public getId(c : Class) : Property =
