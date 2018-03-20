@@ -92,59 +92,59 @@ _*DESACTULIZADO*_
 [if (not cl._isAbstract)]
 [if (cl.isLowEI(cl.detCreateEI(), cl.ftrCreateUpdateEI()))]
 	[if (cl.isCompositeChild())]
-	| Crear _[cl.name/]_ a [cl.compositeChildAssociations().toString()/] | EI | [cl.detCreateEI()/] | [cl.ftrCreateUpdateEI()/] | LOW | [cl.getLowEI()/] |
+| Crear _[cl.name/]_ a [cl.compositeChildAssociations().toString()/] | EI | [cl.detCreateEI()/] | [cl.ftrCreateUpdateEI()/] | LOW | [cl.getLowEI()/] |
 	[else]
-	| Crear [cl.name/] | EI | [cl.detCreateEI()/] | [cl.ftrCreateUpdateEI()/] | LOW | [cl.getLowEI()/] |
+| Crear [cl.name/] | EI | [cl.detCreateEI()/] | [cl.ftrCreateUpdateEI()/] | LOW | [cl.getLowEI()/] |
 	[/if]
 [elseif(cl.isMediumEI(cl.detCreateEI(), cl.ftrCreateUpdateEI()))]
 	[if (cl.isCompositeChild())]
-	| Crear _[cl.name/]_ a [cl.compositeChildAssociations().toString()/] | EI | [cl.detCreateEI()/] | [cl.ftrCreateUpdateEI()/] | MEDIUM | [cl.getMediumEI()/] |
+| Crear _[cl.name/]_ a [cl.compositeChildAssociations().toString()/] | EI | [cl.detCreateEI()/] | [cl.ftrCreateUpdateEI()/] | MEDIUM | [cl.getMediumEI()/] |
 	[else]
-	| Crear [cl.name/] | EI | [cl.detCreateEI()/] | [cl.ftrCreateUpdateEI()/] | MEDIUM | [cl.getMediumEI()/] |
+| Crear [cl.name/] | EI | [cl.detCreateEI()/] | [cl.ftrCreateUpdateEI()/] | MEDIUM | [cl.getMediumEI()/] |
 	[/if]
 [else]
 	[if (cl.isCompositeChild())]
-	| Crear _[cl.name/]_ a [cl.compositeChildAssociations().toString()/] | HIGH | [cl.getHighEI()/] |
+| Crear _[cl.name/]_ a [cl.compositeChildAssociations().toString()/] | HIGH | [cl.getHighEI()/] |
 	[else]
-	| Crear [cl.name/] | EI | [cl.detCreateEI()/] | [cl.ftrCreateUpdateEI()/] | HIGH | [cl.getHighEI()/] |
+| Crear [cl.name/] | EI | [cl.detCreateEI()/] | [cl.ftrCreateUpdateEI()/] | HIGH | [cl.getHighEI()/] |
 	[/if]
 [/if]
 [if (cl.isLowEI(cl.detUpdateEI(), cl.ftrCreateUpdateEI()))]
 	[if (cl.isCompositeChild())]
-	| Editar _[cl.name/]_ a [cl.compositeChildAssociations().toString()/] | EI | [cl.detUpdateEI()/] | [cl.ftrCreateUpdateEI()/] | LOW | [cl.getLowEI()/] |
+| Editar _[cl.name/]_ a [cl.compositeChildAssociations().toString()/] | EI | [cl.detUpdateEI()/] | [cl.ftrCreateUpdateEI()/] | LOW | [cl.getLowEI()/] |
 	[else]
-	| Editar [cl.name/]  | EI | [cl.detUpdateEI()/] | [cl.ftrCreateUpdateEI()/] | LOW | [cl.getLowEI()/] |
+| Editar [cl.name/]  | EI | [cl.detUpdateEI()/] | [cl.ftrCreateUpdateEI()/] | LOW | [cl.getLowEI()/] |
 	[/if]
 [elseif(cl.isMediumEI(cl.detUpdateEI(), cl.ftrCreateUpdateEI()))]
 	[if (cl.isCompositeChild())]
-	| Editar _[cl.name/]_ a [cl.compositeChildAssociations().toString()/] | EI | [cl.detUpdateEI()/] | [cl.ftrCreateUpdateEI()/] | MEDIUM | [cl.getMediumEI()/] |
+| Editar _[cl.name/]_ a [cl.compositeChildAssociations().toString()/] | EI | [cl.detUpdateEI()/] | [cl.ftrCreateUpdateEI()/] | MEDIUM | [cl.getMediumEI()/] |
 	[else]
-	| Editar [cl.name/] | EI | [cl.detUpdateEI()/] | [cl.ftrCreateUpdateEI()/] | MEDIUM | [cl.getMediumEI()/] |
+| Editar [cl.name/] | EI | [cl.detUpdateEI()/] | [cl.ftrCreateUpdateEI()/] | MEDIUM | [cl.getMediumEI()/] |
 	[/if]
 [else]
 	[if (cl.isCompositeChild())]
-	| Editar _[cl.name/]_ a [cl.compositeChildAssociations().toString()/] | EI | [cl.detUpdateEI()/] | [cl.ftrCreateUpdateEI()/] | HIGH | [cl.getHighEI()/] |
+| Editar _[cl.name/]_ a [cl.compositeChildAssociations().toString()/] | EI | [cl.detUpdateEI()/] | [cl.ftrCreateUpdateEI()/] | HIGH | [cl.getHighEI()/] |
 	[else]
-	| Editar [cl.name/] | EI | [cl.detUpdateEI()/] | [cl.ftrCreateUpdateEI()/] | HIGH | [cl.getHighEI()/] |
+| Editar [cl.name/] | EI | [cl.detUpdateEI()/] | [cl.ftrCreateUpdateEI()/] | HIGH | [cl.getHighEI()/] |
 	[/if]
 [/if]
 [if (cl.isLowEI(cl.detDeleteEI(), cl.ftrDeleteEI()))]
 	[if (cl.isCompositeChild())]
-	| Eliminar _[cl.name/]_ a [cl.compositeChildAssociations().toString()/] | EI | [cl.detDeleteEI()/] | [cl.ftrDeleteEI()/] | LOW | [cl.getLowEI()/] |
+| Eliminar _[cl.name/]_ a [cl.compositeChildAssociations().toString()/] | EI | [cl.detDeleteEI()/] | [cl.ftrDeleteEI()/] | LOW | [cl.getLowEI()/] |
 	[else]
-	| Eliminar [cl.name/] | EI | [cl.detDeleteEI()/] | [cl.ftrDeleteEI()/] | LOW | [cl.getLowEI()/] |
+| Eliminar [cl.name/] | EI | [cl.detDeleteEI()/] | [cl.ftrDeleteEI()/] | LOW | [cl.getLowEI()/] |
 	[/if]
 [elseif(cl.isMediumEI(cl.detDeleteEI(), cl.ftrDeleteEI()))]
 	[if (cl.isCompositeChild())]
-	| Eliminar _[cl.name/]_ a [cl.compositeChildAssociations().toString()/] | EI | [cl.detDeleteEI()/] | [cl.ftrDeleteEI()/] | MEDIUM | [cl.getMediumEI()/] |
+| Eliminar _[cl.name/]_ a [cl.compositeChildAssociations().toString()/] | EI | [cl.detDeleteEI()/] | [cl.ftrDeleteEI()/] | MEDIUM | [cl.getMediumEI()/] |
 	[else]
-	| Eliminar [cl.name/] | EI | [cl.detDeleteEI()/] | [cl.ftrDeleteEI()/] | MEDIUM | [cl.getMediumEI()/] |
+| Eliminar [cl.name/] | EI | [cl.detDeleteEI()/] | [cl.ftrDeleteEI()/] | MEDIUM | [cl.getMediumEI()/] |
 	[/if]
 [else]
 	[if (cl.isCompositeChild())]
-	| Eliminar _[cl.name/]_ a [cl.compositeChildAssociations().toString()/] | EI | [cl.detDeleteEI()/] | [cl.ftrDeleteEI()/] | HIGH | [cl.getHighEI()/] |
+| Eliminar _[cl.name/]_ a [cl.compositeChildAssociations().toString()/] | EI | [cl.detDeleteEI()/] | [cl.ftrDeleteEI()/] | HIGH | [cl.getHighEI()/] |
 	[else]
-	| Eliminar [cl.name/] | EI | [cl.detDeleteEI()/] | [cl.ftrDeleteEI()/] | HIGH | [cl.getHighEI()/] |
+| Eliminar [cl.name/] | EI | [cl.detDeleteEI()/] | [cl.ftrDeleteEI()/] | HIGH | [cl.getHighEI()/] |
 	[/if]	
 [/if]
 [/if]
