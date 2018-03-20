@@ -82,14 +82,14 @@
 |Caminos de excepci&oacute;n ||
 [else]
 
-**_NOTA:_ La creación, eliminación y edición de esta entidad está determinada por la entidad _[c.compositeChildAssociations().toString()/]_**
+**_NOTA:_ La creación, eliminación y edición de esta entidad está determinada por la entidad _[c.compositeChildAssociations().toString()/]_ o sus subclases/implementaciones.**
 
 [/if]
 [c.getPropertiesCaseRel()/]
 [c.getPropertiesCase3()/]
 [c.getPropertiesCase4()/]
 
-['['/]Volver arriba[']'/](#lista-de-entidades)
+['['/]Volver al listado de clases[']'/](./UC.md)
 [/file]
 [/if]
 [/template]
