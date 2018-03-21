@@ -210,6 +210,25 @@ endif
 Sequence{a.getOtherEnd().class.getNumAttribs(),1}->sum()
 /]
 
+[**
+ * Retorna la cantidad de det de la relación a listar
+*/]
+[query public detListEQ(c: Class): Integer = 
+Sequence{c.getNumAttribs(),1}->sum()
+/]
+
+[**
+ * Retorna la cantidad de det de la relación a listar
+*/]
+[query public ftrListEQ(c: Class): Integer = 
+if (c.isCompositeChild()) then
+2
+else
+1
+endif
+/]
+
+
 [query public getId(c : Class) : Property =
 c.allAttributes()->any(isID())
 /]

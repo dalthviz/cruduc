@@ -147,6 +147,25 @@ _*DESACTULIZADO*_
 | Eliminar [cl.name/] | EI | [cl.detDeleteEI()/] | [cl.ftrDeleteEI()/] | HIGH | [cl.getHighEI()/] |
 	[/if]	
 [/if]
+[if (isLowEQ(cl.detListEQ(), cl.ftrListEQ()))]
+	[if (cl.isCompositeChild())]
+| Listar _[cl.name/]_ de [cl.compositeChildAssociations().toString()/] o sus subclases | EQ | [cl.detListEQ()/] | 2 | LOW | [cl.getLowEQ()/] |
+	[else]
+| Consultar [cl.name/] | EQ | [cl.detListEQ()/] | 1 | LOW | [cl.getLowEQ()/] |
+	[/if]
+[elseif(isMediumEQ(cl.detListEQ(), cl.ftrListEQ()))]
+	[if (cl.isCompositeChild())]
+| Listar _[cl.name/]_ de [cl.compositeChildAssociations().toString()/] o sus subclases | EQ | [cl.detListEQ()/] | [cl.ftrListEQ()/] | MEDIUM | [cl.getMediumEQ()/] |
+	[else]
+| Consultar [cl.name/] | EI | [cl.detListEQ()/] | [cl.ftrListEQ()/] | MEDIUM | [cl.getMediumEQ()/] |
+	[/if]
+[else]
+	[if (cl.isCompositeChild())]
+| Listar _[cl.name/]_ de [cl.compositeChildAssociations().toString()/] o sus subclases | EQ | [cl.detListEQ()/] | [cl.ftrListEQ()/] | HIGH | [cl.getHighEQ()/] |
+	[else]
+| Consultar [cl.name/] | EQ | [cl.detListEQ()/] | [cl.ftrListEQ()/] | HIGH | [cl.getHighEQ()/] |
+	[/if]	
+[/if]
 [if (cl.hasRelationshipAttributes())]
 [for (a : Property | cl.getRelationshipAttributes())] 
 [if (a.isRelationshipOwner() and not a.isComposite())]
@@ -164,9 +183,6 @@ _*DESACTULIZADO*_
 [/if]
 [/if]
 [/for]
-
-//hacer EQ (listar o ver - R)
-//hacer for sobre las relaciones no composite para crear CDR de asociaciones por clase (agregar, listar, eliminar)
 
 
 ## Tablas de para cálculo de Puntos de Función
