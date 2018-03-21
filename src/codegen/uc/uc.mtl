@@ -149,7 +149,7 @@ _*DESACTULIZADO*_
 [/if]
 [if (cl.hasRelationshipAttributes())]
 [for (a : Property | cl.getRelationshipAttributes())] 
-[if (a.isRelationshipOwner() and a.isOne2Many() and not a.isComposite())]
+[if (a.isRelationshipOwner() and not a.isComposite())]
 | Agregar _[a.name/]_ a [cl.name/] | EI | 2 | 2 | LOW | [getLowEI()/] |
 [if(isLowEQ(a.detListEQ(), 2))]
 | Listar _[a.name/]_ a [cl.name/] | EQ | [a.detListEQ()/] | 2 | LOW | [getLowEQ()/] |
