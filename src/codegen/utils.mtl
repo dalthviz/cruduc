@@ -127,6 +127,29 @@ or
 ( det>15 and ftr<=1 )
 /]
 
+
+[**
+ * Determina si la complejidad es baja EQ
+*/]
+[query public isLowEQ(det: Integer, ftr: Integer): Boolean = 
+( det<=4 and ftr < 2 )
+or
+( det >=5 and det <=15 and ftr <=1)
+/]
+
+[**
+ * Determina si la complejidad es media EQ
+*/]
+
+[query public isMediumEQ(det: Integer, ftr: Integer) : Boolean = 
+( det<=4 and det>=1 and ftr>3 )
+or
+( det >=5 and det <= 15 and ftr>=2 and ftr<=3 )
+or
+( det>15 and ftr<=1 )
+/]
+
+
 [**
  * Retorna la cantidad de det de la clase para borrar
 */]
@@ -178,6 +201,13 @@ if(not c.isCompositeChild())then
 else
 2
 endif
+/]
+
+[**
+ * Retorna la cantidad de det de la relación a listar
+*/]
+[query public detListEQ(a: Property): Integer = 
+Sequence{a.getOtherEnd().class.getNumAttribs(),1}->sum()
 /]
 
 [query public getId(c : Class) : Property =
