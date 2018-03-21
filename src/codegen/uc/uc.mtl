@@ -184,6 +184,11 @@ _*DESACTULIZADO*_
 [/if]
 [/for]
 
+## Puntos de función totales
+
+| ILF | EI | EQ | Total |
+| -- | -- | -- | -- |
+| [m.getTotalILF()/] | [m.getTotalEI()/] | [m.getTotalEI()/] | [m.getTotalFP()/] |
 
 ## Tablas de para cálculo de Puntos de Función
 

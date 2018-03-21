@@ -228,6 +228,43 @@ else
 endif
 /]
 
+[**
+ * Obtiene el total de puntos de función de tipo ILF del modelo
+*/]
+[query public getTotalILF(m: Model): Integer =
+m.getClasses()->collect(c |
+if (c.isLowILF()) then
+	getLowILF()
+else
+ if(c.isMediumILF()) then
+    getMediumILF()
+ else
+	getHighILF()
+ endif
+endif
+)->asSequence()->sum()
+/]
+
+[**
+ * Obtiene el total de puntos de función de tipo EI del modelo
+*/]
+[query public getTotalEI(m: Model): Integer =
+0
+/]
+
+[**
+ * Obtiene el total de puntos de función de tipo EQ del modelo
+*/]
+[query public getTotalEQ(m: Model): Integer =
+0
+/]
+
+[**
+ * Obtiene el total de puntos de función del modelo
+*/]
+[query public getTotalFP(m: Model): Integer =
+Sequence{m.getTotalEI(), m.getTotalEQ(), m.getTotalILF()}->sum()
+/]
 
 [query public getId(c : Class) : Property =
 c.allAttributes()->any(isID())
