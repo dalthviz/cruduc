@@ -32,7 +32,7 @@
 |                        | 3. El actor digita la informaci&oacute;n del formulario de [c.name/] con los campos de: [c.getPropertiesClass()/] [c.getPropertiesCases2abcd()/].|                        
 |                        | 4. Se guardan cambios de [c.name/].|
 |Postcondici&oacute;n:|  |
-|Caminos de excepci&oacuten | |
+|Caminos de excepci&oacute;n | |
 
 
 ### UC Editar [c.name.toLowerCase()/]
