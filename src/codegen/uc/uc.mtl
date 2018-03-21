@@ -94,7 +94,7 @@ _*DESACTULIZADO*_
 	[if (cl.isCompositeChild())]
 | Crear _[cl.name/]_ a [cl.compositeChildAssociations().toString()/] o sus subclases | EI | [cl.detCreateEI()/] | [cl.ftrCreateUpdateEI()/] | LOW | [cl.getLowEI()/] |
 	[else]
-| Crear [cl.name/] | EI | [cl.detCreateEI()/] | [cl.ftrCreateUpdateEI()/] | LOW | [cl.getLowEI()/] |
+| ['['/] Crear [cl.name/] [']'/](./UC[cl.name/].md#uc-crear-[cl.name.toLowerCase()/]) | EI | [cl.detCreateEI()/] | [cl.ftrCreateUpdateEI()/] | LOW | [cl.getLowEI()/] |
 	[/if]
 [elseif(cl.isMediumEI(cl.detCreateEI(), cl.ftrCreateUpdateEI()))]
 	[if (cl.isCompositeChild())]
