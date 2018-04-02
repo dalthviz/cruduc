@@ -157,7 +157,7 @@ _*DESACTULIZADO*_
 	[if (cl.isCompositeChild())]
 | Listar _[cl.name/]_ de [cl.compositeChildAssociations().toString()/] o sus subclases | EQ | [cl.detListEQ()/] | [cl.ftrListEQ()/] | MEDIUM | [cl.getMediumEQ()/] |
 	[else]
-| Consultar [cl.name/] | EI | [cl.detListEQ()/] | [cl.ftrListEQ()/] | MEDIUM | [cl.getMediumEQ()/] |
+| Consultar [cl.name/] | EQ | [cl.detListEQ()/] | [cl.ftrListEQ()/] | MEDIUM | [cl.getMediumEQ()/] |
 	[/if]
 [else]
 	[if (cl.isCompositeChild())]
@@ -172,7 +172,7 @@ _*DESACTULIZADO*_
 | Agregar _[a.name/]_ a [cl.name/] | EI | 2 | 2 | LOW | [getLowEI()/] |
 [if(isLowEQ(a.detListEQ(), 2))]
 | Listar _[a.name/]_ a [cl.name/] | EQ | [a.detListEQ()/] | 2 | LOW | [getLowEQ()/] |
-[elseif(isLowEQ(a.detListEQ(), 2))]
+[elseif(isMediumEQ(a.detListEQ(), 2))]
 | Listar _[a.name/]_ a [cl.name/] | EQ | [a.detListEQ()/] | 2 | MEDIUM | [getMediumEQ()/] |
 [else]
 | Listar _[a.name/]_ a [cl.name/] | EQ | [a.detListEQ()/] | 2 | HIGH | [getHighEQ()/] |

@@ -211,7 +211,7 @@ Sequence{a.getOtherEnd().class.getNumAttribs(),1}->sum()
 /]
 
 [**
- * Retorna la cantidad de det de la relación a listar
+ * Retorna la cantidad de det de la clase a listar
 */]
 [query public detListEQ(c: Class): Integer = 
 Sequence{c.getNumAttribs(),1}->sum()
@@ -246,17 +246,190 @@ endif
 /]
 
 [**
+ * Obtiene el total de punto de función de tipo EI para actualización
+*/]
+[query public getTotalUpdateEI(m: Model): Integer = 
+m.getClasses()->collect(cl |
+if (not cl._isAbstract) then
+	if(cl.isLowEI(cl.detUpdateEI(), cl.ftrCreateUpdateEI()))then
+		getLowEI()
+	else
+		if(cl.isMediumEI(cl.detUpdateEI(), cl.ftrCreateUpdateEI()))then
+			getMediumEI()
+		else
+			getHighEI()
+		endif
+	endif
+else
+	0
+endif
+)->asSequence()->sum()
+/]
+
+[**
+ * Obtiene el total de punto de función de tipo EI para creación
+*/]
+[query public getTotalCreateEI(m: Model): Integer = 
+m.getClasses()->collect(cl |
+if (not cl._isAbstract) then
+	if(cl.isLowEI(cl.detCreateEI(), cl.ftrCreateUpdateEI()))then
+		getLowEI()
+	else
+		if(cl.isMediumEI(cl.detCreateEI(), cl.ftrCreateUpdateEI()))then
+			getMediumEI()
+		else
+			getHighEI()
+		endif
+	endif
+else
+	0
+endif
+)->asSequence()->sum()
+/]
+
+[**
+ * Obtiene el total de punto de función de tipo EI para borrado
+*/]
+[query public getTotalDeleteEI(m: Model): Integer = 
+m.getClasses()->collect(cl |
+if (not cl._isAbstract) then
+	if(cl.isLowEI(cl.detDeleteEI(), cl.ftrDeleteEI()))then
+		getLowEI()
+	else
+		if(cl.isMediumEI(cl.detDeleteEI(), cl.ftrDeleteEI()))then
+			getMediumEI()
+		else
+			getHighEI()
+		endif
+	endif
+else
+	0
+endif
+)->asSequence()->sum()
+/]
+
+
+[**
+ * Obtiene el total de puntos de función de tipo EI de la creación de relaciones
+*/]
+[query public getTotalRelationAddEI(m: Model): Integer =
+m.getClasses()->collect(cl|
+if (not cl._isAbstract) then
+	if(cl.hasRelationshipAttributes())then
+		cl.getRelationshipEI()
+	else
+		0
+	endif
+else
+	0
+endif
+)->asSequence()->sum()
+/]
+
+[**
+ * Obtener puntos de función de tipo EI según las relaciones no composite para 
+*/]
+[query public getRelationshipEI(c: Class): Integer = 
+c.getRelationshipAttributes()->collect(a|
+	if (a.isRelationshipOwner() and not a.isComposite()) then
+		getLowEI()
+	else
+		0
+	endif
+)->asSequence()->sum()
+/]
+
+[**
+ * Obtiene el total de puntos de función de tipo EI de la eliminación de relaciones
+*/]
+[query public getTotalRelationDeleteEI(m: Model): Integer =
+m.getClasses()->collect(cl|
+if (not cl._isAbstract) then
+	if(cl.hasRelationshipAttributes())then
+		cl.getRelationshipEI()
+	else
+		0
+	endif
+else
+	0
+endif
+)->asSequence()->sum()
+/]
+
+
+[**
  * Obtiene el total de puntos de función de tipo EI del modelo
 */]
 [query public getTotalEI(m: Model): Integer =
-0
+Sequence{m.getTotalCreateEI(), m.getTotalUpdateEI(), m.getTotalDeleteEI(),
+		m.getTotalRelationAddEI(), m.getTotalRelationDeleteEI()}->sum()
 /]
+
+[**
+ * Obtiene el total de puntos de función de tipo EQ de relaciones composite y clases individuales
+*/]
+[query public getCompositeEQ(m: Model): Integer =
+m.getClasses()->collect(cl |
+if (not cl._isAbstract) then
+	if(isLowEQ(cl.detListEQ(), cl.ftrListEQ()))then
+		getLowEQ()
+	else
+		if(isMediumEQ(cl.detListEQ(), cl.ftrListEQ()))then
+			getMediumEQ()
+		else
+			getHighEQ()
+		endif
+	endif
+else
+	0
+endif
+)->asSequence()->sum()
+/]
+
+[**
+ * Obtiene el total de puntos de función de tipo EQ de relaciones no composite
+*/]
+[query public getNonCompositeEQ(m: Model): Integer =
+m.getClasses()->collect(cl|
+if (not cl._isAbstract) then
+	if(cl.hasRelationshipAttributes())then
+		cl.getRelationshipEQ()
+	else
+		0
+	endif
+else
+	0
+endif
+)->asSequence()->sum()
+/]
+
+[**
+ * Obtener puntos de función de tipo EQ según las relaciones no composite
+*/]
+[query public getRelationshipEQ(c: Class): Integer = 
+c.getRelationshipAttributes()->collect(a|
+	if (a.isRelationshipOwner() and not a.isComposite()) then
+		if (isLowEQ(a.detListEQ(), 2)) then
+			getLowEQ()
+		else
+			if (isMediumEQ(a.detListEQ(), 2)) then
+				getMediumEQ()
+			else
+				getHighEQ()
+			endif
+		endif
+	else
+		0
+	endif
+)->asSequence()->sum()
+/]
+
 
 [**
  * Obtiene el total de puntos de función de tipo EQ del modelo
 */]
 [query public getTotalEQ(m: Model): Integer =
-0
+Sequence{getCompositeEQ(), getNonCompositeEQ()}->sum()
 /]
 
 [**
