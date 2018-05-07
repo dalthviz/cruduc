@@ -1,5 +1,6 @@
 <generator>
 	<name>GMM</name>
 	<m2t name="uc/uc.mtl" />
-	<m2t name="uc/individualUC.mtl" />
+	<m2t name="uc/individualUC.mtl" />	
+	<m2t name="uc/export.mtl" />
 </generator>

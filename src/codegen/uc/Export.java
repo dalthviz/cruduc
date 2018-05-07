@@ -25,24 +25,24 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
 /**
- * Entry point of the 'Uc' generation module.
+ * Entry point of the 'Export' generation module.
  *
  * @generated
  */
-public class Uc extends AbstractAcceleoGenerator {
+public class Export extends AbstractAcceleoGenerator {
     /**
      * The name of the module.
      *
      * @generated
      */
-    public static final String MODULE_FILE_NAME = "/codegen/uc/uc";
+    public static final String MODULE_FILE_NAME = "/codegen/uc/export";
     
     /**
      * The name of the templates that are to be generated.
      *
      * @generated
      */
-    public static final String[] TEMPLATE_NAMES = { "generate" };
+    public static final String[] TEMPLATE_NAMES = { "CSVExport" };
     
     /**
      * The list of properties files from the launch parameters (Launch configuration).
@@ -65,7 +65,7 @@ public class Uc extends AbstractAcceleoGenerator {
      *
      * @generated
      */
-    public Uc() {
+    public Export() {
         // Empty implementation
     }
 
@@ -85,7 +85,7 @@ public class Uc extends AbstractAcceleoGenerator {
      *             the model cannot be loaded.
      * @generated
      */
-    public Uc(URI modelURI, File targetFolder,
+    public Export(URI modelURI, File targetFolder,
             List<? extends Object> arguments) throws IOException {
         initialize(modelURI, targetFolder, arguments);
     }
@@ -106,7 +106,7 @@ public class Uc extends AbstractAcceleoGenerator {
      *             This can be thrown in two scenarios : the module cannot be found, or it cannot be loaded.
      * @generated
      */
-    public Uc(EObject model, File targetFolder,
+    public Export(EObject model, File targetFolder,
             List<? extends Object> arguments) throws IOException {
         initialize(model, targetFolder, arguments);
     }
@@ -141,7 +141,7 @@ public class Uc extends AbstractAcceleoGenerator {
                  * add in "arguments" this "String" attribute.
                  */
                 
-                Uc generator = new Uc(modelURI, folder, arguments);
+                Export generator = new Export(modelURI, folder, arguments);
                 
                 /*
                  * Add the properties from the launch arguments.
@@ -265,7 +265,7 @@ public class Uc extends AbstractAcceleoGenerator {
      * 
      * @return The list of properties file we need to add to the generation context.
      * @see java.util.ResourceBundle#getBundle(String)
-     * @generated NOT
+     * @generated
      */
     @Override
     public List<String> getProperties() {
@@ -303,9 +303,6 @@ public class Uc extends AbstractAcceleoGenerator {
          * 
          * To learn more about Properties Files, have a look at the Acceleo documentation (Help -> Help Contents).
          */
-    	
-    	propertiesFiles.add("src/codegen/points.properties");
-    	
         return propertiesFiles;
     }
     
